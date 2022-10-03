@@ -14,4 +14,9 @@ var io = socket(server,{
 
 io.on('connection', socket => {
     console.log(`Made connection with Id ${socket.id}`);
+
+    socket.on('chat', (data) => {
+        io.sockets.emit('chat',data)
+    });
 })
+
